@@ -156,7 +156,7 @@
           var taskText = document.createElement("span");
           taskText.textContent = taskInput.value + " ";
 
-          // Set priority class based on selection
+          
           if (priorityInput.value === "High") {
             newTask.classList.add("high-priority");
           } else if (priorityInput.value === "Medium") {
@@ -174,7 +174,7 @@
           completeButton.onclick = function () {
             newTask.classList.toggle("completed");
 
-            // Toggle remove button based on completion status
+           
             if (newTask.classList.contains("completed")) {
               addRemoveButton();
             } else {
@@ -189,14 +189,13 @@
             newTask.remove();
           };
 
-          // Function to add remove button
           function addRemoveButton() {
             if (!newTask.querySelector(".remove")) {
               buttonContainer.appendChild(removeButton);
             }
           }
 
-          // Function to remove remove button
+          
           function removeRemoveButton() {
             const existingRemoveButton = newTask.querySelector(".remove");
             if (existingRemoveButton) {
@@ -208,13 +207,13 @@
           buttonContainer.appendChild(completeButton);
           newTask.appendChild(buttonContainer);
 
-          // Insert new task based on priority
+         
           var inserted = false;
           for (var i = 0; i < taskList.children.length; i++) {
             var child = taskList.children[i];
             var childPriority = child.className;
 
-            // Determine insertion point based on priority levels
+           
             if (
               (priorityInput.value === "High" &&
                 childPriority !== "high-priority") ||
@@ -227,12 +226,12 @@
             }
           }
 
-          // If no suitable position found, append at the end
+          
           if (!inserted) {
             taskList.appendChild(newTask);
           }
 
-          // Clear task input after adding task
+       
           taskInput.value = "";
         }
       }
